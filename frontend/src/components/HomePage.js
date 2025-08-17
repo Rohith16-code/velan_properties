@@ -277,7 +277,7 @@ const HomePage = () => {
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-6 h-6 mr-4 text-gold" />
-                  <span className="text-lg">123 Real Estate Avenue, Property City</span>
+                  <span className="text-lg">Hosur, TamilNadu - 635126</span>
                 </div>
               </div>
               <div className="mt-8">
