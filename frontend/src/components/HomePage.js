@@ -272,42 +272,64 @@ const HomePage = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockProperties.map((property, index) => (
-              <Card key={property.id} className={`overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer transform ${isVisible.properties ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: `${index * 200}ms` }}>
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={property.image} 
-                    alt={property.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <Badge className="absolute top-4 left-4 bg-gold text-white">{property.type}</Badge>
-                  <div className="absolute top-4 right-4 bg-royal-blue text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    ${property.price}
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-royal-blue mb-2">{property.title}</h3>
-                  <div className="flex items-center text-gray-600 mb-3">
-                    <MapPin className="w-4 h-4 mr-1" />
-                    <span className="text-sm">{property.location}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm text-gray-500">
-                    <div className="flex items-center">
-                      <BedDouble className="w-4 h-4 mr-1" />
-                      <span>{property.bedrooms} Beds</span>
+            {propertiesLoading ? (
+              // Loading skeleton
+              [...Array(6)].map((_, index) => (
+                <Card key={index} className="overflow-hidden animate-pulse">
+                  <div className="h-64 bg-gray-200" />
+                  <CardContent className="p-6">
+                    <div className="h-4 bg-gray-200 rounded mb-2" />
+                    <div className="h-3 bg-gray-200 rounded mb-3 w-3/4" />
+                    <div className="flex justify-between">
+                      <div className="h-3 bg-gray-200 rounded w-1/4" />
+                      <div className="h-3 bg-gray-200 rounded w-1/4" />
+                      <div className="h-3 bg-gray-200 rounded w-1/4" />
                     </div>
-                    <div className="flex items-center">
-                      <Car className="w-4 h-4 mr-1" />
-                      <span>{property.parking} Parking</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Maximize className="w-4 h-4 mr-1" />
-                      <span>{property.area}</span>
+                  </CardContent>
+                </Card>
+              ))
+            ) : properties.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-gray-500 text-lg">No properties available at the moment.</p>
+              </div>
+            ) : (
+              properties.map((property, index) => (
+                <Card key={property.id} className={`overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer transform ${isVisible.properties ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: `${index * 200}ms` }}>
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={property.image} 
+                      alt={property.title}
+                      className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                    <Badge className="absolute top-4 left-4 bg-gold text-white">{property.type}</Badge>
+                    <div className="absolute top-4 right-4 bg-royal-blue text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      {property.price}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold text-royal-blue mb-2">{property.title}</h3>
+                    <div className="flex items-center text-gray-600 mb-3">
+                      <MapPin className="w-4 h-4 mr-1" />
+                      <span className="text-sm">{property.location}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center">
+                        <BedDouble className="w-4 h-4 mr-1" />
+                        <span>{property.bedrooms} Beds</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Car className="w-4 h-4 mr-1" />
+                        <span>{property.parking} Parking</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Maximize className="w-4 h-4 mr-1" />
+                        <span>{property.area}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))
+            )}
           </div>
         </div>
       </section>
