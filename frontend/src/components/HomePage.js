@@ -85,10 +85,59 @@ const HomePage = () => {
   const whatsappMessage = "Hi! I'm interested in your real estate services. Can you help me?";
   const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission - would integrate with backend later
-    alert('Thank you for your inquiry! We will contact you soon.');
+    
+    // Validate form
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: "Please fill required fields",
+        description: "Name, email, and message are required.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      setFormLoading(true);
+      
+      const response = await axios.post(`${API}/contacts`, {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || null,
+        message: formData.message.trim()
+      });
+
+      if (response.data.success) {
+        toast({
+          title: "Thank you for your inquiry!",
+          description: response.data.message,
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      const errorMessage = error.response?.data?.detail || 'Unable to send message. Please try again.';
+      toast({
+        title: "Error sending message",
+        description: errorMessage,
+        variant: "destructive",
+      });
+    } finally {
+      setFormLoading(false);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   return (
