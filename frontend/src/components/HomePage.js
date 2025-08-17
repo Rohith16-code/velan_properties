@@ -477,7 +477,7 @@ const HomePage = () => {
                 <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
                 <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
                 <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
-                <li><a href="#properties" className="hover:text-white transition-colors">Properties</a></li>
+                <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
               </ul>
             </div>
             <div>
