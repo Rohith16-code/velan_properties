@@ -44,7 +44,7 @@ class PropertyUpdate(BaseModel):
     bedrooms: Optional[int] = Field(None, ge=1, le=20)
     parking: Optional[int] = Field(None, ge=0, le=10)
     area: Optional[str] = Field(None, min_length=1, max_length=50)
-    type: Optional[str] = Field(None, regex="^(For Sale|For Rent|Investment)$")
+    type: Optional[str] = Field(None, pattern="^(For Sale|For Rent|Investment)$")
     image: Optional[str] = Field(None, min_length=10)
     description: Optional[str] = Field(None, max_length=2000)
     features: Optional[List[str]] = None
