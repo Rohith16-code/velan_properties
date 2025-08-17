@@ -269,7 +269,7 @@ const HomePage = () => {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Phone className="w-6 h-6 mr-4 text-gold" />
-                  <span className="text-lg">{whatsappNumber}</span>
+                  <span className="text-lg">+919443246742</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 mr-4 text-gold" />
