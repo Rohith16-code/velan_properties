@@ -219,11 +219,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Contact Form API"
-    - "Properties API"
     - "Contact Form Integration"
     - "Properties Display Integration"
-    - "Property CRUD Operations"
+    - "Contact Information Update"
+    - "Toast Notifications"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
