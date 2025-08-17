@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
+import { Toaster } from './components/ui/toaster';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
+      <Toaster />
     </div>
   );
 }
