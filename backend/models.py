@@ -32,7 +32,7 @@ class PropertyCreate(BaseModel):
     bedrooms: int = Field(..., ge=1, le=20)
     parking: int = Field(..., ge=0, le=10)
     area: str = Field(..., min_length=1, max_length=50)
-    type: str = Field(..., regex="^(For Sale|For Rent|Investment)$")
+    type: str = Field(..., pattern="^(For Sale|For Rent|Investment)$")
     image: str = Field(..., min_length=10)
     description: Optional[str] = Field(None, max_length=2000)
     features: Optional[List[str]] = None
