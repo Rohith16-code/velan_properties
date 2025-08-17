@@ -81,8 +81,6 @@ const testimonials = [
 
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState({});
-  const [properties, setProperties] = useState([]);
-  const [propertiesLoading, setPropertiesLoading] = useState(true);
   const [formLoading, setFormLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -91,28 +89,6 @@ const HomePage = () => {
     message: ''
   });
   const { toast } = useToast();
-
-  // Fetch properties from backend
-  useEffect(() => {
-    const fetchProperties = async () => {
-      try {
-        setPropertiesLoading(true);
-        const response = await axios.get(`${API}/properties`);
-        setProperties(response.data);
-      } catch (error) {
-        console.error('Error fetching properties:', error);
-        toast({
-          title: "Error loading properties",
-          description: "Unable to load properties. Please try again later.",
-          variant: "destructive",
-        });
-      } finally {
-        setPropertiesLoading(false);
-      }
-    };
-
-    fetchProperties();
-  }, [toast]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
