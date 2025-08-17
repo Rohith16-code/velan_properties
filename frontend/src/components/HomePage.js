@@ -44,7 +44,7 @@ const HomePage = () => {
     return () => observer.disconnect();
   }, []);
 
-  const whatsappNumber = "+1234567890"; // Placeholder number
+  const whatsappNumber = "+919443246742"; // Velan Properties WhatsApp
   const whatsappMessage = "Hi! I'm interested in your real estate services. Can you help me?";
   const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
