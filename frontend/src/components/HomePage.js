@@ -18,15 +18,66 @@ import {
   Award, 
   Target,
   MapPin,
-  BedDouble,
-  Car,
-  Maximize,
+  Star,
+  Quote,
   Loader2
 } from 'lucide-react';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
+
+// Testimonials data with Indian names
+const testimonials = [
+  {
+    id: 1,
+    name: "Rajesh Krishnamurthy",
+    location: "Hosur",
+    rating: 5,
+    text: "Velan Properties helped us find our dream home in Hosur within our budget. Their transparency and honest guidance made the entire process smooth. Highly recommend their services!",
+    designation: "Software Engineer"
+  },
+  {
+    id: 2,
+    name: "Priya Srinivasan",
+    location: "Bangalore",
+    rating: 5,
+    text: "Excellent service! They understood exactly what we were looking for and showed us properties that matched our requirements. Very professional team with deep local knowledge.",
+    designation: "Doctor"
+  },
+  {
+    id: 3,
+    name: "Arun Subramanian",
+    location: "Hosur",
+    rating: 5,
+    text: "We sold our property through Velan Properties at the best market price. They handled all paperwork efficiently and kept us informed throughout. Trustworthy and reliable!",
+    designation: "Business Owner"
+  },
+  {
+    id: 4,
+    name: "Meera Raman",
+    location: "Krishnagiri",
+    rating: 5,
+    text: "Being new to Hosur, Velan Properties guided us to the best neighborhoods. Their local expertise and patient approach helped us make the right investment decision.",
+    designation: "Teacher"
+  },
+  {
+    id: 5,
+    name: "Vikram Patel",
+    location: "Hosur",
+    rating: 5,
+    text: "Professional, honest, and dedicated - that's Velan Properties. They helped us find a rental property quickly and at fair terms. Great experience working with them.",
+    designation: "Marketing Manager"
+  },
+  {
+    id: 6,
+    name: "Lakshmi Nair",
+    location: "Dharmapuri",
+    rating: 5,
+    text: "Exceptional service from start to finish! They made our first home buying experience stress-free with their guidance and support. Thank you for making our dream come true!",
+    designation: "IT Professional"
+  }
+];
 
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState({});
