@@ -368,9 +368,9 @@ const HomePage = () => {
             <div>
               <h4 className="font-semibold mb-4">Contact Info</h4>
               <div className="space-y-2 text-gray-400">
-                <p>{whatsappNumber}</p>
-                <p>info@velanproperties.com</p>
-                <p>123 Real Estate Avenue<br />Property City</p>
+                <p>+919443246742</p>
+                <p>velanproperties777@gmail.com</p>
+                <p>Hosur, TamilNadu - 635126</p>
               </div>
             </div>
           </div>
