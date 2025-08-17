@@ -403,32 +403,54 @@ const HomePage = () => {
               <form onSubmit={handleFormSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <Input 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder="Your Name" 
                     required 
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/70"
                   />
                   <Input 
+                    name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Your Email" 
                     required 
                     className="bg-white/10 border-white/20 text-white placeholder:text-white/70"
                   />
                 </div>
                 <Input 
-                  placeholder="Phone Number" 
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="Phone Number (Optional)" 
                   className="bg-white/10 border-white/20 text-white placeholder:text-white/70"
                 />
                 <Textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   placeholder="Your Message"
                   rows={5}
+                  required
                   className="bg-white/10 border-white/20 text-white placeholder:text-white/70"
                 />
                 <Button 
                   type="submit"
                   size="lg" 
+                  disabled={formLoading}
                   className="w-full bg-gold hover:bg-gold/90 text-royal-blue font-semibold"
                 >
-                  Send Message
+                  {formLoading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Sending Message...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </form>
             </div>
