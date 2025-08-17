@@ -48,7 +48,7 @@ class PropertyUpdate(BaseModel):
     image: Optional[str] = Field(None, min_length=10)
     description: Optional[str] = Field(None, max_length=2000)
     features: Optional[List[str]] = None
-    status: Optional[str] = Field(None, regex="^(active|sold|rented)$")
+    status: Optional[str] = Field(None, pattern="^(active|sold|rented)$")
 
 class Property(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
