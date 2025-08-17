@@ -220,12 +220,12 @@ const HomePage = () => {
               Chat on WhatsApp
             </Button>
             <Button 
-              onClick={() => document.getElementById('properties').scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('testimonials').scrollIntoView({ behavior: 'smooth' })}
               variant="outline" 
               size="lg" 
               className="border-white text-white hover:bg-white hover:text-royal-blue px-8 py-6 text-lg"
             >
-              Explore Properties
+              Read Testimonials
             </Button>
           </div>
         </div>
