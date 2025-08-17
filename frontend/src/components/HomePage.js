@@ -180,7 +180,7 @@ const HomePage = () => {
               <a href="#home" className="text-gray-700 hover:text-royal-blue transition-colors">Home</a>
               <a href="#about" className="text-gray-700 hover:text-royal-blue transition-colors">About</a>
               <a href="#services" className="text-gray-700 hover:text-royal-blue transition-colors">Services</a>
-              <a href="#properties" className="text-gray-700 hover:text-royal-blue transition-colors">Properties</a>
+              <a href="#testimonials" className="text-gray-700 hover:text-royal-blue transition-colors">Testimonials</a>
               <a href="#contact" className="text-gray-700 hover:text-royal-blue transition-colors">Contact</a>
             </div>
             <Button 
