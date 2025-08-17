@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { useToast } from '../hooks/use-toast';
 import { 
   Home, 
   ShoppingCart, 
@@ -19,9 +20,13 @@ import {
   MapPin,
   BedDouble,
   Car,
-  Maximize
+  Maximize,
+  Loader2
 } from 'lucide-react';
-import { mockProperties } from '../data/mockData';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState({});
