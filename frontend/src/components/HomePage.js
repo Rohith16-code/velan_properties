@@ -273,7 +273,7 @@ const HomePage = () => {
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 mr-4 text-gold" />
-                  <span className="text-lg">info@velanproperties.com</span>
+                  <span className="text-lg">velanproperties777@gmail.com</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-6 h-6 mr-4 text-gold" />
